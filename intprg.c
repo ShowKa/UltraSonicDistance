@@ -154,7 +154,7 @@ void Excep_CAN2_TXM2(void){ }
 void Excep_RTC_CUP(void){ }
 
 // ICU IRQ0
-void Excep_ICU_IRQ0(void){ }
+// void Excep_ICU_IRQ0(void){ }
 
 // ICU IRQ1
 void Excep_ICU_IRQ1(void){ }

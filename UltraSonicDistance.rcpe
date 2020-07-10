@@ -23,8 +23,12 @@
       </Category>
       <Category Name="io">
         <Path>led.c</Path>
+        <Path>port9.c</Path>
       </Category>
       <Path>hwsetup.c</Path>
+      <Category Name="irq">
+        <Path>irq.c</Path>
+      </Category>
     </Files>
     <DebugOptions>
       <ConnectSettings>
@@ -88,6 +92,8 @@
           <Path>DefaultBuild\Timer_control_TPU2.obj</Path>
           <Path>DefaultBuild\led.obj</Path>
           <Path>DefaultBuild\hwsetup.obj</Path>
+          <Path>DefaultBuild\port9.obj</Path>
+          <Path>DefaultBuild\irq.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

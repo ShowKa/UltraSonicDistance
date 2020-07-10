@@ -25,8 +25,9 @@ void initIRQ() {
 	MPC.PWPR.BYTE |= 0x80;
 	
 	// IRQÇÃê›íË
-	ICU.IRQCR[0].BIT.IRQMD = 0x01;
-	ICU.IRQCR[1].BIT.IRQMD = 0x01;
+	//åüèoÅF1:óßâ∫ÇË, 2:óßè„ÇË
+	ICU.IRQCR[0].BIT.IRQMD = 0x02;
+	ICU.IRQCR[1].BIT.IRQMD = 0x02;
 	
 	// óDêÊìxÇÃê›íË
 	IPR(ICU, IRQ0) = 6;
@@ -38,11 +39,4 @@ void initIRQ() {
 	IEN(ICU, IRQ0) = 1;
 	IEN(ICU, IRQ1) = 1;
 
-}
-
-void Excep_ICU_IRQ0(void){ 
-	while(1) {
-		int i = 0;
-		i++;
-	}
 }

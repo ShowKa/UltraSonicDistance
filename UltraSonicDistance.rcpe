@@ -20,6 +20,7 @@
       <Path>vect.h</Path>
       <Category Name="TPU">
         <Path>Timer_control_TPU2.c</Path>
+        <Path>Counter_TPU9.c</Path>
       </Category>
       <Category Name="io">
         <Path>led.c</Path>
@@ -94,6 +95,7 @@
           <Path>DefaultBuild\hwsetup.obj</Path>
           <Path>DefaultBuild\port9.obj</Path>
           <Path>DefaultBuild\irq.obj</Path>
+          <Path>DefaultBuild\Counter_TPU9.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

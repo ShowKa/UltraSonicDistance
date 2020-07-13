@@ -1,9 +1,8 @@
 #include "iodefine.h"
 
-void init_TPU9(void);
+void init_TPU9();
 
-void init_TPU9(void)
-{
+void init_TPU9() {
 	//プロテクトの解除
 	SYSTEM.PRCR.WORD = 0xA503;  // PRKEY[7:0] : 書き換え時はA5hを設定
                         // クロック発生回路関連：許可、動作モード等：許可
@@ -14,7 +13,7 @@ void init_TPU9(void)
                         // クロック発生回路関連：禁止、動作モード等：禁止
 	//TPU0の動作設定
 	//①タイマプリスケーラ(カウント速度)の設定
-	TPU9.TCR.BIT.TPSC = 7;	//内部クロック：PCLK/1024でカウント
+	TPU9.TCR.BIT.TPSC = 5;	//内部クロック：PCLK/1024でカウント
 						//46,875[Hz]で動作(λ=21.333333・・・・・[uS]) = 1カウントあたり21.33333・・・・・[uS]
 	//②入力クロックエッジ選択ビット(エッジ：入力信号電圧の立上がり/立下りの瞬間)
 	TPU9.TCR.BIT.CKEG = 1;	//立ち上がりエッジでカウント
@@ -24,4 +23,20 @@ void init_TPU9(void)
 	TPU9.TMDR.BIT.MD = 0;	//通常動作設定
 	TPU9.TGRA = 0xffff;
 	TPUB.TSTR.BIT.CST9 = 1;
+}
+
+void start_TPU9() {
+	// TPU9 start
+	TPU9.TCNT = 0;
+	TPUB.TSTR.BIT.CST9 = 1;
+}
+
+int getCount_TPU9() {
+	return TPU9.TCNT;
+}
+
+// micro second
+int getTimeSpan_TPU9() {
+	int count = getCount_TPU9();
+	return count * 21.333;
 }

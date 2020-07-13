@@ -17,8 +17,15 @@ void main() {
 	setup();
 	pPrint_SCI( Start_Message, 100);
 	while(1) {
-		trigger();
-		delay_ms(50);
+		unsigned char distance_message[7];
+		distance_message[0] = distance / 1000 % 10 + '0';
+		distance_message[1] = distance / 100 % 10 + '0';
+		distance_message[2] = distance / 10 % 10 + '0';
+		distance_message[3] = distance / 1 % 10 + '0';
+		distance_message[4] = 'c';
+		distance_message[5] = 'm';
+		distance_message[6] = '\n\r';
+		pPrint_SCI( distance_message, 7);
 	}
 	while(1);
 }
@@ -30,6 +37,7 @@ void setup() {
 	init_TPU2();
 	init_TPU9();
 	initIRQ();
+	init_CMT0();
 	setpsw_i();
 }
 
@@ -48,6 +56,15 @@ void Excep_ICU_IRQ0(void){
 	while(PORTD.PIDR.BIT.B0 == 1);
 	span = getTimeSpan_TPU9();
 	distance = span / 58;
+	if (isStartTimer) {
+		start_TIMER();
+	}
+}
+
+// CMT0 äÑçûÇ›èàóù
+void Excep_CMT0_CMI0(void) {
+	char isStartTimer = isStart_TIMER();
+	trigger();
 	if (isStartTimer) {
 		start_TIMER();
 	}

@@ -55,7 +55,7 @@ void Excep_FCU_FRDYI(void){ }
 void Excep_ICU_SWINT(void){ }
 
 // CMT0 CMI0
-void Excep_CMT0_CMI0(void){ }
+// void Excep_CMT0_CMI0(void){ }
 
 // CMT1 CMI1
 void Excep_CMT1_CMI1(void){ }

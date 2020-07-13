@@ -33,6 +33,9 @@
       <Category Name="sci">
         <Path>sciDrv_ch0.c</Path>
       </Category>
+      <Category Name="cmt">
+        <Path>cmt.c</Path>
+      </Category>
     </Files>
     <DebugOptions>
       <ConnectSettings>
@@ -100,6 +103,7 @@
           <Path>DefaultBuild\irq.obj</Path>
           <Path>DefaultBuild\Counter_TPU9.obj</Path>
           <Path>DefaultBuild\sciDrv_ch0.obj</Path>
+          <Path>DefaultBuild\cmt.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

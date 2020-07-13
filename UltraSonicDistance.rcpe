@@ -13,6 +13,7 @@
       <Path>sbrk.c</Path>
       <Path>UltraSonicDistance.c</Path>
       <Path>vecttbl.c</Path>
+      <Path>hwsetup.c</Path>
       <Path>iodefine.h</Path>
       <Path>sbrk.h</Path>
       <Path>stacksct.h</Path>
@@ -26,9 +27,11 @@
         <Path>led.c</Path>
         <Path>port9.c</Path>
       </Category>
-      <Path>hwsetup.c</Path>
       <Category Name="irq">
         <Path>irq.c</Path>
+      </Category>
+      <Category Name="sci">
+        <Path>sciDrv_ch0.c</Path>
       </Category>
     </Files>
     <DebugOptions>
@@ -96,6 +99,7 @@
           <Path>DefaultBuild\port9.obj</Path>
           <Path>DefaultBuild\irq.obj</Path>
           <Path>DefaultBuild\Counter_TPU9.obj</Path>
+          <Path>DefaultBuild\sciDrv_ch0.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

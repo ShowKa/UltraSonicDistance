@@ -551,7 +551,7 @@ void Excep_PDC_PCFEI(void){ }
 void Excep_PDC_PCERI(void){ }
 
 // SCI0 RXI0
-void Excep_SCI0_RXI0(void){ }
+// void Excep_SCI0_RXI0(void){ }
 
 // SCI0 TXI0
 void Excep_SCI0_TXI0(void){ }

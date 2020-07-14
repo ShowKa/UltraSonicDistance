@@ -7,6 +7,7 @@ extern unsigned char SCI0_RX_FLAG;
 extern int DISTANCE;
 
 void setup();
+int convertTemp2Duty(unsigned short temperature);
 
 void main() {
 	//STARTメッセージ表示
@@ -55,5 +56,16 @@ void setup() {
 	initIRQ();
 	init_CMT0();
 	init_S12AD();
+	init_TPU0_PWM();
 	setpsw_i();
+}
+
+int convertTemp2Duty(unsigned short temperature) {
+	if(temperature < 290) {
+	    return 200;
+	} else if(290 <= temperature && temperature < 320) {
+	    return 200 + ( temperature - 290 ) * 25;
+	} else {
+	    return 950;
+	}
 }

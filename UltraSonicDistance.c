@@ -50,7 +50,7 @@ void main() {
 void setup() {
 	initSCI0();
 	initLed();
-	initPort9();
+	init_US_TRIGGER();
 	init_TPU2();
 	init_TPU9();
 	initIRQ();

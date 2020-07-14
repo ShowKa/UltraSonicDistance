@@ -25,7 +25,6 @@
       </Category>
       <Category Name="io">
         <Path>led.c</Path>
-        <Path>port9.c</Path>
       </Category>
       <Category Name="irq">
         <Path>irq.c</Path>
@@ -106,7 +105,6 @@
           <Path>DefaultBuild\Timer_control_TPU2.obj</Path>
           <Path>DefaultBuild\led.obj</Path>
           <Path>DefaultBuild\hwsetup.obj</Path>
-          <Path>DefaultBuild\port9.obj</Path>
           <Path>DefaultBuild\irq.obj</Path>
           <Path>DefaultBuild\Counter_TPU9.obj</Path>
           <Path>DefaultBuild\sciDrv_ch0.obj</Path>

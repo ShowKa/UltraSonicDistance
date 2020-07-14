@@ -3,11 +3,19 @@
 
 int DISTANCE; //cm
 
+init_US_TRIGGER() {
+	PORT9.PDR.BIT.B0 = 0xff;
+}
+
+setTrigger(char output) {
+	PORT9.PODR.BIT.B0 = output;
+}
+
 // trigger pulse: width=10us
 void trigger() {
-	setPort9(0x01);
+	setTrigger(1);
 	delay_us(10);
-	setPort9(0x00);
+	setTrigger(0);
 }
 
 // catch output Echo

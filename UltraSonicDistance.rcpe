@@ -36,6 +36,9 @@
       <Category Name="cmt">
         <Path>cmt.c</Path>
       </Category>
+      <Category Name="sensor">
+        <Path>temperature.c</Path>
+      </Category>
     </Files>
     <DebugOptions>
       <ConnectSettings>
@@ -104,6 +107,7 @@
           <Path>DefaultBuild\Counter_TPU9.obj</Path>
           <Path>DefaultBuild\sciDrv_ch0.obj</Path>
           <Path>DefaultBuild\cmt.obj</Path>
+          <Path>DefaultBuild\temperature.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

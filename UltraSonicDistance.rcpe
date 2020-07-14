@@ -38,6 +38,7 @@
       </Category>
       <Category Name="sensor">
         <Path>temperature.c</Path>
+        <Path>ultrasonic.c</Path>
       </Category>
     </Files>
     <DebugOptions>
@@ -108,6 +109,7 @@
           <Path>DefaultBuild\sciDrv_ch0.obj</Path>
           <Path>DefaultBuild\cmt.obj</Path>
           <Path>DefaultBuild\temperature.obj</Path>
+          <Path>DefaultBuild\ultrasonic.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

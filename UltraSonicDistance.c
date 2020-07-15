@@ -55,6 +55,7 @@ void setup() {
 	init_TPU9();
 	initIRQ();
 	init_CMT0();
+	init_CMT1();
 	init_S12AD();
 	init_TPU0_PWM();
 	setpsw_i();

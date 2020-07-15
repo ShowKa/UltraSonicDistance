@@ -74,4 +74,3 @@ void init_CMT1(void)
 	// CMT0 Start	
 	CMT.CMSTR0.BIT.STR1 = 1; // CMT0 Start
 }
-

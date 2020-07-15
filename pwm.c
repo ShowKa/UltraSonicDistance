@@ -1,11 +1,13 @@
 #include "iodefine.h"
 
 void ModulePowerSetup(void);		//消費電力低減機能の設定
+void ModulePowerDisable(void);
 void init_TPU0_PWM(void);			//TPU(タイマパルスユニット)の初期設定
 void PWM0Wide(int wide);		//PWMの出力波形設定(Dutyの設定)
 void startPWM0(void);			//PWM信号出力開始
 void stopPWM0(void);			//PWM信号出力停止
 void PWM_duty(int value);		//PWM_duty設定関数
+void stopPWM0(void);
 
 //引数でH幅決める。300:duty30% 500:duty50% 800:duty80%
 void PWM_duty(int value)
@@ -24,6 +26,14 @@ void ModulePowerSetup(void)
 	/* プロテクト再設定 */
 	SYSTEM.PRCR.WORD = 0xA500;	//
 }
+
+void ModulePowerDisable(void)
+{
+	SYSTEM.PRCR.WORD = 0xA503;
+	SYSTEM.MSTPCRA.BIT.MSTPA13 = 1;
+	SYSTEM.PRCR.WORD = 0xA500;
+}
+
 
 void init_TPU0_PWM(void)
 {
@@ -70,4 +80,14 @@ void PWM0Wide(int wide)
 void startPWM0(void)
 {
 	TPUA.TSTR.BIT.CST0 = 1;	// TPU0 カウントスタート
+}
+
+void stopPWM0(void)
+{
+	TPUA.TSTR.BIT.CST0 = 0;
+}
+
+void stopPWM0_EMERGENCY() {
+	stopPWM0();
+	ModulePowerDisable();
 }

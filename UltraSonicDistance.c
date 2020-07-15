@@ -1,5 +1,6 @@
 #include <machine.h>
 #include "sciDrv.h"
+#include "vect.h"
 
 //ƒOƒ[ƒoƒ‹•Ï”éŒ¾
 extern unsigned char SCI0_RX_DATA;
@@ -69,4 +70,18 @@ int convertTemp2Duty(unsigned short temperature) {
 	} else {
 	    return 950;
 	}
+}
+
+void Excep_CMT1_CMI1(void){
+	unsigned short temp;
+	int duty;
+
+	if (DISTANCE < 100) {
+		stopPWM0_EMERGENCY();
+		return;
+	}
+
+	temp =  getTemperature();
+	duty = convertTemp2Duty(temp);
+	PWM_duty(duty);
 }

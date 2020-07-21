@@ -157,6 +157,13 @@
       <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
       <ParentItem>06aa2a99-6e32-4d5b-8804-fb1be12ae165</ParentItem>
     </Instance>
+    <Instance Guid="604bd8b9-f3e9-4de3-93de-24d67f0554d7">
+      <Name>lcd.c</Name>
+      <Type>File</Type>
+      <RelativePath>lcd.c</RelativePath>
+      <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
+      <ParentItem>06aa2a99-6e32-4d5b-8804-fb1be12ae165</ParentItem>
+    </Instance>
     <Instance Guid="3457ac87-9428-4581-8b4b-30f1378f781d">
       <Name>irq.c</Name>
       <Type>File</Type>
@@ -299,7 +306,9 @@
       <SourceItemType14>CSource</SourceItemType14>
       <SourceItemGuid15>11b93ce1-a21f-4672-9a01-1833e19f6139</SourceItemGuid15>
       <SourceItemType15>CSource</SourceItemType15>
-      <SourceItemCount>16</SourceItemCount>
+      <SourceItemGuid16>604bd8b9-f3e9-4de3-93de-24d67f0554d7</SourceItemGuid16>
+      <SourceItemType16>CSource</SourceItemType16>
+      <SourceItemCount>17</SourceItemCount>
       <LastDeviceChangedCounter>0</LastDeviceChangedCounter>
     </Instance>
     <Instance Guid="9e208646-ccba-4100-a676-29b1efe6545f">
@@ -1233,6 +1242,10 @@ D_2=R_2
       <ItemAddTime>637303256786925842</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
     </Instance>
+    <Instance Guid="604bd8b9-f3e9-4de3-93de-24d67f0554d7">
+      <ItemAddTime>637309374633664123</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
     <Instance Guid="a7be515f-f007-45ed-9059-4e1500c0f74d">
       <TimeTagModified-SourceItem0--0>-8586072601410892870</TimeTagModified-SourceItem0--0>
       <SourceItem0-IsLockedByUser>False</SourceItem0-IsLockedByUser>
@@ -1298,6 +1311,10 @@ D_2=R_2
       <SourceItem15-IsLockedByUser>False</SourceItem15-IsLockedByUser>
       <SourceItem15-BuildingTarget-0>True</SourceItem15-BuildingTarget-0>
       <SourceItem15-IndividualCompileOption-0>False</SourceItem15-IndividualCompileOption-0>
+      <TimeTagModified-SourceItem16--0>-8586062986221111685</TimeTagModified-SourceItem16--0>
+      <SourceItem16-IsLockedByUser>False</SourceItem16-IsLockedByUser>
+      <SourceItem16-BuildingTarget-0>True</SourceItem16-BuildingTarget-0>
+      <SourceItem16-IndividualCompileOption-0>False</SourceItem16-IndividualCompileOption-0>
     </Instance>
   </Class>
   <Class Guid="44fa27c9-0aa0-4297-bd3b-2c5c5bdb8881">
@@ -2487,7 +2504,6 @@ D_2=R_2
       <DebuggerProperty-HookProperty-HookTransaction-Broke-Length>0</DebuggerProperty-HookProperty-HookTransaction-Broke-Length>
       <DebuggerProperty-HookProperty-HookTransaction-Connected-Length>0</DebuggerProperty-HookProperty-HookTransaction-Connected-Length>
       <DebuggerProperty-HookProperty-HookTransaction-Disconnecting-Length>0</DebuggerProperty-HookProperty-HookTransaction-Disconnecting-Length>
-      <DebuggerProperty-EssentialProperty-EmulatorConnect-SerialNumber />
     </Instance>
   </Class>
   <Class Guid="100f3761-3d7e-4559-b1d8-375a0c7bf682">

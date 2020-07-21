@@ -25,6 +25,7 @@
       </Category>
       <Category Name="io">
         <Path>led.c</Path>
+        <Path>lcd.c</Path>
       </Category>
       <Category Name="irq">
         <Path>irq.c</Path>
@@ -112,6 +113,7 @@
           <Path>DefaultBuild\temperature.obj</Path>
           <Path>DefaultBuild\ultrasonic.obj</Path>
           <Path>DefaultBuild\pwm.obj</Path>
+          <Path>DefaultBuild\lcd.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

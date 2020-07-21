@@ -26,9 +26,10 @@ void main() {
 				message[3] = DISTANCE / 1 % 10 + '0';
 				message[4] = 'c';
 				message[5] = 'm';
-				message[6] = '\r';
-				message[7] = '\n';
-				pPrint_SCI(message, 8);
+				message[6] = 0x00;
+				LCD_clear();
+				LCD_locate(1, 1);
+				LCD_putstr(message);
 			} else if (SCI0_RX_DATA == 't') {
 				unsigned char message[7];
 				unsigned short temperature = getTemperature();
@@ -37,9 +38,10 @@ void main() {
 				message[2] = '.';
 				message[3] = temperature / 1 % 10 + '0';
 				message[4] = 'c';
-				message[5] = '\r';
-				message[6] = '\n';
-				pPrint_SCI(message, 7);
+				message[5] = 0x00;
+				LCD_clear();
+				LCD_locate(1, 2);
+				LCD_putstr(message);
 			}
 			// reset
 			SCI0_RX_FLAG = 0;
@@ -59,6 +61,7 @@ void setup() {
 	init_CMT1();
 	init_S12AD();
 	init_TPU0_PWM();
+	LCD_init();
 	setpsw_i();
 }
 

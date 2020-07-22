@@ -11,11 +11,11 @@ void setup();
 int convertTemp2Duty(unsigned short temperature);
 
 void main() {
-	//STARTメッセージ表示
 	setup();
 	while(1);
 }
 
+// 初期化
 void setup() {
 	initSCI0();
 	initLed();
@@ -32,16 +32,9 @@ void setup() {
 	setpsw_i();
 }
 
-int convertTemp2Duty(unsigned short temperature) {
-	if(temperature < 290) {
-	    return 200;
-	} else if(290 <= temperature && temperature < 320) {
-	    return 200 + ( temperature - 290 ) * 25;
-	} else {
-	    return 950;
-	}
-}
-
+// CMT割込
+// 温度によりPWM duty比調整
+// ただし遮蔽物との距離が違い場合、PWM停止
 void Excep_CMT1_CMI1(void){
 	unsigned short temp;
 	int duty;
@@ -55,6 +48,8 @@ void Excep_CMT1_CMI1(void){
 	}
 }
 
+// CMT割込
+// LCDに距離と温度を表示する
 void Excep_CMT2_CMI2(void) {
 	unsigned short temperature = getTemperature();
 	static unsigned char message[7];
@@ -76,4 +71,14 @@ void Excep_CMT2_CMI2(void) {
 	message[5] = 0x00;
 	LCD_locate(1, 2);
 	LCD_putstr(message);
+}
+
+int convertTemp2Duty(unsigned short temperature) {
+	if(temperature < 290) {
+	    return 200;
+	} else if(290 <= temperature && temperature < 320) {
+	    return 200 + ( temperature - 290 ) * 25;
+	} else {
+	    return 950;
+	}
 }

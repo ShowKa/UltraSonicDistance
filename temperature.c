@@ -1,13 +1,17 @@
 #include "iodefine.h"
 #include <machine.h>
+#include "vect.h"
 
-unsigned short getTemperature() {
+unsigned  short TEMPERATURE = 0;
+
+/*** S12AD S12ADI0 ***/
+void Excep_S12AD_S12ADI0(void) {
     unsigned short int data_AN002;
     unsigned short int cal_AN002;
     S12AD.ADCSR.BIT.ADST = 1;
     data_AN002 = S12AD.ADDR2;
     cal_AN002 = (unsigned short) ((( data_AN002 * 3300 / 4096.0 -424) / 6.25 ) * 10 );
-    return cal_AN002;
+    TEMPERATURE = cal_AN002;
 }
 
 void init_S12AD(void) {
@@ -33,10 +37,10 @@ void init_S12AD(void) {
     
     /* channel select */
     S12AD.ADANS0.WORD = 0x05;  // ch0 convert AN000 & 002
-	
+    
     /* AD Data Format setting */
     S12AD.ADCER.BIT.ADRFMT = 0;    // Right-justfy 
-        
+    
     /**** MPCでP40端子をアナログ入力端子に設定 ***/
     MPC.PWPR.BYTE &= ~0x80;    // プロテクト解除
     MPC.PWPR.BYTE |= 0x40;
@@ -48,7 +52,10 @@ void init_S12AD(void) {
     MPC.PWPR.BYTE |= 0x80;
     
     /***** 割り込みの設定 *****/
-    //ICU.IPR[102].BIT.IPR = 8;    // Priority level 8
-    //ICU.IR[102].BIT.IR = 0;     // clear Status Flag
-    //ICU.IER[0x0C].BIT.IEN6 = 1;   // Enable Interrupt
+    ICU.IPR[102].BIT.IPR = 8;    // Priority level 8
+    ICU.IR[102].BIT.IR = 0;     // clear Status Flag
+    ICU.IER[0x0C].BIT.IEN6 = 1;   // Enable Interrupt
+    
+    // start
+    S12AD.ADCSR.BIT.ADST = 1;
 }

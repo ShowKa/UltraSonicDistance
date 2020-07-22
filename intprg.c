@@ -54,6 +54,8 @@ void Excep_FCU_FRDYI(void){ }
 // ICU SWINT
 void Excep_ICU_SWINT(void){ }
 
+// include "vect.h" if you move an interrupted method to another file.
+
 // CMT0 CMI0
 // void Excep_CMT0_CMI0(void){ }
 
@@ -217,7 +219,7 @@ void Excep_RTC_PRD(void){ }
 void Excep_AD_ADI0(void){ }
 
 // S12AD S12ADI0
-void Excep_S12AD_S12ADI0(void){ }
+// void Excep_S12AD_S12ADI0(void){ }
 
 // ICU GROUP0
 void Excep_ICU_GROUP0(void){ }

@@ -3,9 +3,8 @@
 #include "vect.h"
 
 //グローバル変数宣言
-extern unsigned char SCI0_RX_DATA;
-extern unsigned char SCI0_RX_FLAG;
 extern int DISTANCE;
+extern unsigned short TEMPERATURE;
 
 void setup();
 int convertTemp2Duty(unsigned short temperature);
@@ -36,14 +35,12 @@ void setup() {
 // 温度によりPWM duty比調整
 // ただし遮蔽物との距離が違い場合、PWM停止
 void Excep_CMT1_CMI1(void){
-	unsigned short temp;
 	int duty;
 	if (DISTANCE < 100) {
 		// stopPWM0_EMERGENCY();
 		stopPWM0();
 	} else {
-		temp =  getTemperature();
-		duty = convertTemp2Duty(temp);
+		duty = convertTemp2Duty(TEMPERATURE);
 		PWM_duty(duty);
 	}
 }
@@ -51,7 +48,6 @@ void Excep_CMT1_CMI1(void){
 // CMT割込
 // LCDに距離と温度を表示する
 void Excep_CMT2_CMI2(void) {
-	unsigned short temperature = getTemperature();
 	static unsigned char message[7];
 	LCD_clear();
 	message[0] = DISTANCE / 1000 % 10 + '0';
@@ -63,10 +59,10 @@ void Excep_CMT2_CMI2(void) {
 	message[6] = 0x00;
 	LCD_locate(1, 1);
 	LCD_putstr(message);
-	message[0] = temperature / 100 % 10 + '0';
-	message[1] = temperature / 10 % 10 + '0';
+	message[0] = TEMPERATURE / 100 % 10 + '0';
+	message[1] = TEMPERATURE / 10 % 10 + '0';
 	message[2] = '.';
-	message[3] = temperature / 1 % 10 + '0';
+	message[3] = TEMPERATURE / 1 % 10 + '0';
 	message[4] = 'c';
 	message[5] = 0x00;
 	LCD_locate(1, 2);
